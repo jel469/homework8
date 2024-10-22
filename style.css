@@ -1,0 +1,276 @@
+
+.gradient-background {
+    background: linear-gradient(300deg, #1b8f0c, #2964a8, #311e77);
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite;
+  }
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  #skillList li {
+    margin: 5px 0;
+    padding: 5px;
+    border: 1px solid #ccc;
+  }
+
+
+
+
+
+#projectList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.project {
+  border: 4px solid darkmagenta;
+  padding: 15px;
+  border-radius: 5px;
+  width: calc(33.33% - 20px);
+  box-sizing: border-box;
+}
+
+.project h2 {
+  margin-top: 0;
+}
+
+.project h2 a {
+  color: #7457e0;
+  text-decoration: none;
+}
+
+.project h2 a:hover {
+  text-decoration: underline;
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.project p {
+  margin-bottom: 5px;
+}
+
+.deadline {
+  font-weight: bold;
+  color: #007bff;
+}
+
+
+#resume {
+  margin: 20px 0;
+}
+
+#resumeDownload {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4a23a7;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+#resumeDownload:hover {
+  background-color: purple;
+  transition: 0.8s;
+}
+
+#downloadCount {
+  font-style: italic;
+  color: black;
+}
+
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #2964a8;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #2964a8;
+}
+
+
+
+
+.shadow-sm:hover {
+    background-color: #311e77;
+    opacity: 0.9;
+    transition: 0.8s;
+    color: black;
+}
+
+body {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    text-align: center;
+  }
+
+
+h1 {
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+    font-optical-sizing: auto;
+    font-style: normal;
+    text-align: center;
+}
+h2 {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+h3 {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+h5 {
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+}
+
+
+
+
+
+@media (min-width: 319px) and (max-width: 480px) {
+    h1, h2, h3 {
+      color: purple;
+    } 
+    h1 {
+        font-size: 35px;
+    }
+    h2 {
+        font-size: 25px;
+    }
+    h3 {
+        font-size: 14px;
+    }
+
+    p {
+        font-size: 14px;
+        
+    }
+    .movie {
+        height: 175px;
+        width: 125px;
+    }
+
+  }
+
+  @media (min-width: 481px) and (max-width: 1200px) {
+    h1, h2, h3 {
+      color: blueviolet;
+    }
+    h1 {
+        font-size: 45px;
+      }
+    h2 {
+        font-size: 30px;
+    }
+    h3 {
+        font-size: 22px;
+    }
+    p {
+        font-size: 20px;
+    }
+  }
+
+  @media (min-width: 1201px) and (max-width: 1600px) {
+    h1, h2, h3 {
+      color: rgb(179, 27, 199);
+    }
+    h1 {
+        font-size: 50px;
+    }
+    h2 {
+        font-size: 35px;
+    }
+    h3 {
+        font-size: 25px;
+    }
+    .movie {
+        height: 375px;
+        width: 250px;
+    }
+    p{
+        font-size: 22px;
+    }
+
+  }
+
+  @media (min-width: 1601px) {
+    h1, h2, h3, href {
+      color: blue;
+    }
+    h1 {
+        font-size: 55px;
+    }
+    h2 {
+        font-size: 35px;
+    }
+    h3 {
+        font-size: 25px;
+    }
+    p{
+        font-size: 20px;
+    }
+    .movie {
+        height: 475px;
+        width: 300px;
+    }
+  }
+
+  .birthday {
+    width: 45%;
+  }
+
+#red {
+    color: red;
+}
+#blue {
+    color: blue
+}
+#orange {
+    color: orange;
+}
+#green {
+    color: green;
+}
+#yellow {
+    color: yellow;
+}
+.color-title {
+    font-weight: normal;
+}
+

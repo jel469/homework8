@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name = "viewport" content="width=device-width,  initial-scale=1.0">
   <title> Jeremiah's Portfolio</title>
   <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Tangerine">
@@ -50,7 +51,7 @@
 
 
   <div class="px-4 py-5 my-5 text-center">
-    <img src="./assets/images/myself.jpg" alt="myself" width="500" height="500">
+    <img src="/assets/images/myself.jpg" alt="myself" width="500" height="500">
     <h1 class="display-5 fw-bold text-body-emphasis">Jeremiah Lopez</h1>
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4"> A fast-learning individual who is
@@ -62,10 +63,13 @@
         in extracurricular activities such a
         film club. I have worked many jobs in retail and fast-food, both displaying my hard-working and time-mangement skills.
         </p>
+        <section id = "resume">
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <button type="button" class="btn btn-primary btn-lg px-4 gap-" > <a href="public/Jeremiah Lopez Resume 2024.pdf"> <h2>  Download my Resume (PDF)</h2></a></button>
+        <a href="/public/Jeremiah Lopez Resume 2024.pdf" id = "resumeDownload"> <h2>  Download my Resume (PDF) </h2></a>
       </div>
-       <img src="./assets/images/resume.png" height = "450"
+      <p id = "downloadCount"> Downloads: 0 </p>
+    </section>
+       <img src="/assets/images/resume.png" height = "450"
   alt ="resume"/>
 
     </div>
@@ -155,258 +159,54 @@
 </div>
 </div>
 </section>
+
+<h4> <ins></ins> Enter Skills: </h4>
+<form id="skillForm">
+  <input type="text" id="skillInput" placeholder="">
+  <button type = "submit"> Add Skill </button>
+</form>
+
+<ul id="skillList"> </ul>
+
+
+
+
+
+
 <div class="container px-4 py-5" id="featured-3">
   <section id="Education">
   <h1 class="display-5 fw-bold text-body-emphasis">Education</h1>
   <div class = "main-content">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col">Degree</th>
-          <th scope="col">Location</th>
-          <th scope="col">Duration</th>
-          <th scope="col">Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">Associates</th>
-          <td>Glendale Community College</td>
-          <td>2 Years</td>
-          <td>4 Semesters consisting average of 4 Classes
-            each. Joined Maricopa Honors Society and
-            Phi Theta Kappa Honor s Society. Participated
-            Cinema Society Club as Senator.</td>
-        </tr>
-        <tr>
-          <th scope="row">Certificate</th>
-          <td>Pharmacy Technician Program - West-Mec</td>
-          <td>1 year</td>
-          <td>This one year hands-on course teaches the
-            basics of pharmacy duties while also performing
-            them in a practice lab for 450 hours of
-            classroom and lab instruction.</td>
-        </tr>
-        <tr>
-          <th scope="row">Diploma</th>
-          <td>Thunderbird High School</td>
-          <td>4 Years</td>
-          <td>Relevant Coursework: Honors English, Honors
-            Algebra, Honors Geometry, College Algebra,
-            Honors Integrated Science, Honors Biology,
-            Honors Chemistry</td>
-        </tr>
-      </tbody>
-    </table>
-  </table>
-</div>
+ <section id="education">
+    </section>
+    </div>
   </section>
+
+
+
+
   <section id="Work">
- 
   <div class="container px-4 py-5" id="featured-3">
   <h1 class="display-5 fw-bold text-body-emphasis">Experience</h1>
   <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">Position</th>
-        <th scope="col">Company</th>
-        <th scope="col">Duration</th>
-        <th scope="col">Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">Produce Associate</th>
-        <td>Sam's Club</td>
-        <td>August 2024 - September 2024</td>
-        <td>Maintains up-to-date knowledge of the products; collaborating with cross functional teams and helping educate other associates on tools, tasks, and resources; communicating effectively and developing interpersonal skills for providing customer service; and being flexible to the needs of the business to work in other areas, tracking goods, maintaining in-stock levels, and controlling shrinkage in a timely manner.
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">Delivery Driver</th>
-        <td>Jimmy Johns</td>
-        <td>September 2022 - February 2023 | November 2023 - April 2024</td>
-        <td>Responsible for performing all job duties
-          accurately, safely and with honesty and
-          integrity.
-          Ask for feedback on provided services and
-          resolve clients' complaints.
-          Be prompt, tactful, calm, courteous, and
-          professional in all interactions. </td>
-      </tr>
-      <tr>
-        <th scope="row">Customer Associate</th>
-        <td>Raising Cane's</td>
-        <td>April 2023 - November 2024</td>
-        <td> Responsible for performing all job duties
-          accurately, safely and with honesty and
-          integrity.
-          Evaluate employee performance to gauge
-          where skills are lacking and provide
-          feedback.
-          Be prompt, tactful, calm, courteous, and
-          professional in all interactions.</td>
-      </tr>
-    </tbody>
-  </table>
+    <section id="experience">
+    </section>
   </table>
   </div>
   </section>
 
 
 
-      <section id="Projects">
-      <div class="container">
-        <div class="container px-4 py-5" id="featured-3">
-        <h1 class="display-5 fw-bold text-body-emphasis">Projects</h1>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="./assets/images/movie-ranking.png" height="250" alt="movie ranking project preview"/>
-                <div class="card-body">
-                <h5 class="card-title">Movie Ranking Project</h5>
-                <p class="card-text">A project showcasing some of my favorite movies. </p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary"> <a href = "./public/movie-ranking.html"> View </a></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="./assets/images/birthday-invite.png" height="250" alt="movie ranking project preview"/>
-              <div class="card-body">
-                <h5 class="card-title">Birthday Invite Project</h5>
-                <p class="card-text">A project about my birthday.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary"> <a href = "./public/birthday-invite.html"> View </a></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="./assets/images/color-vocab.png" height="250" alt="movie ranking project preview"/>
-              <div class="card-body">
-                <h5 class="card-title">Color Vocab Project</h5>
-                <p class="card-text">A project about learning colors in spanish.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary"> <a href = "./public/Color Vocab.html"> View </a></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="./assets/images/Box-model.png" height="250" alt="movie ranking project preview"/>
-              <div class="card-body">
-                <h5 class="card-title">Box Making Project</h5>
-                <p class="card-text">A project showcasing the use of Box Models in CSS.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary"> <a href = "./public/Box Model.html"> View </a></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="./assets/images/Motivational.png" height="250" alt="movie ranking project preview"/>
-              <div class="card-body">
-                <h5 class="card-title">Motivational Poster Project</h5>
-                <p class="card-text"> A project of a motivational poster with use of CSS.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary"> <a href = "./public/Motivational.html"> View </a></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="./assets/images/Laos.png" height="250" alt="movie ranking project preview"/>
-              <div class="card-body">
-                <h5 class="card-title">CSS Flag</h5>
-                <p class="card-text">A flag made out of CSS selectors.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary"> <a href = "./public/Flag.html"> View </a></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="./assets/images/Web-Design.png" height="250" alt="movie ranking project preview"/>
-              <div class="card-body">
-                <h5 class="card-title">Web Design Agency</h5>
-                <p class="card-text">A parody of a Web Design Agency with the use of CSS elements. </p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary"> <a href = "./public/Web Design Agency CSS.html"> View </a></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="./assets/images/mondrain.png" height="250" alt="movie ranking project preview"/>
-              <div class="card-body">
-                <h5 class="card-title">Mondrain Painting</h5>
-                <p class="card-text"> A Mondrain painting using grid functions.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary"> <a href = "./public/Mondrian.html"> View </a></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="./assets/images/price.png" height="250" alt="movie ranking project preview"/>
-              <div class="card-body">
-                <h5 class="card-title">Pricing Project</h5>
-                <p class="card-text">A pricing website using flexbox functions.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary"> <a href = "./public/Pricing.html"> View </a></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="./assets/images/TinDog.png" height="250" alt="movie ranking project preview"/>
-              <div class="card-body">
-                <h5 class="card-title">TinDog</h5>
-                <p class="card-text">A parody of tinder with dogs, using bootstrap components.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary"> <a href = "./public/TinDog.html"> View </a></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-      </section>
+     
+
+      
+<section id="Projects">
+  <section id ="projects">
+    <h1> Projects </h1>
+    <div id="projectList"> </div>
+  </section>
+</section>
+
 
 
 <section id = "Contact/About">
@@ -423,8 +223,8 @@
         <li class="nav-item"><a href="index.html#Education" class="nav-link px-2 text-body-secondary">Education</a></li>
         <li class="nav-item"><a href="index.html#Work" class="nav-link px-2 text-body-secondary">Experience</a></li>
         <li class="nav-item"><a href="index.html#PRojects" class="nav-link px-2 text-body-secondary">Projects</a></li>
-        <li class="nav-item"><a href="./public/contact.html" class="nav-link px-2 text-body-secondary">Contact Me</a></li>
-        <li class="nav-item"><a href="./public/about.html" class="nav-link px-2 text-body-secondary">About Me</a></li>
+        <li class="nav-item"><a href="public/contact.html" class="nav-link px-2 text-body-secondary">Contact Me</a></li>
+        <li class="nav-item"><a href="public/about.html" class="nav-link px-2 text-body-secondary">About Me</a></li>
 
       </ul>
     </footer>
@@ -432,5 +232,6 @@
 </section>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/public/app.js"> </script>
 </body>
 </html>

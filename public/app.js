@@ -29,16 +29,16 @@ const projectTitles = [ // array of project titles
 ];
 
 const titleLinks = [
-    "/public/movie-ranking.html",
-    "/public/birthday-invite.html",
-    "/public/Color Vocab.html",
-    "/public/Box Model.html",
-    "/public/Motivational.html",
-    "/public/Flag.html",
-    "/public/Web Design Agency CSS.html",
-    "/public/Mondrian.html",
-    "/public/Pricing.html",
-    "/public/TinDog.html"
+    "./public/movie-ranking.html",
+    "./public/birthday-invite.html",
+    "./public/Color Vocab.html",
+    "./public/Box Model.html",
+    "./public/Motivational.html",
+    "./public/Flag.html",
+    "./public/Web Design Agency CSS.html",
+    "./public/Mondrian.html",
+    "./public/Pricing.html",
+    "./public/TinDog.html"
 ];
 
 const projectDescriptions = [ // array of project descriptions

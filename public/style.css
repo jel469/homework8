@@ -118,6 +118,154 @@ tr:nth-child(even) {
 }
 
 
+.skillcontainer {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+
+
+#skillInput {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px 0 0 4px;
+}
+
+#skillForm button {
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #4a23a7;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#skillForm button:hover {
+  background-color: purple;
+}
+
+#skillsList {
+  list-style-type: none;
+  padding: 0;
+}
+
+#skillsList li {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#skillsList li:hover {
+  background-color: rgb(97, 145, 209);
+}
+
+.edit-btn, .delete-btn {
+  padding: 5px 10px;
+  font-size: 14px;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+  background-color: #523fbe;
+  margin-right: 5px;
+}
+
+.edit-btn:hover {
+  background-color: purple;
+}
+
+.delete-btn {
+  background-color: #1c7a3c;
+}
+
+.delete-btn:hover {
+  background-color: #1cac40;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#skillsList li {
+  animation: fadeIn 0.5s ease;
+}
+
+
+
+
+
+
+
+.project {
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  width: calc(33.333% - 20px);
+  margin-bottom: 20px;
+}
+
+.project:hover {
+  transform: translateY(-5px);
+}
+
+.sort-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.btn {
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: purple;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #7156af;
+}
+
+.btn-secondary {
+  background-color: Green;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #0abb45;
+}
+
+
+
+
+
+
+
+
+
 
 
 .shadow-sm:hover {

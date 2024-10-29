@@ -1,44 +1,153 @@
-// adding skills
-    const skillForm = document.querySelector('#skillForm');
-    const skillInput = document.querySelector('#skillInput');
-    const skillList= document.querySelector('#skillList');
+$(document).ready(function() {
+    $('.navbar-nav a.nav-link').on('click', function(e) {
+        if (this.href.indexOf(location.pathname) !== -1) {
+            e.preventDefault();
 
+            const targetId = $(this).attr('href').split('#')[1];
+            const $targetSection = $('#' + targetId);
 
-skillForm.addEventListener('submit', function(event) {
-        event.preventDefault();
+            if ($targetSection.length) {
+                const navHeight = $('.navbar').outerHeight();
 
-        const NewSkill = skillInput.value.trim();
+                $('html, body').animate({
+                    scrollTop: $targetSection.offset().top - navHeight
+                }, 500); // scroll speed
 
-        if (NewSkill !== '') {
-
-            const ListItem = document.createElement('li');
-            ListItem.textContent = NewSkill;
-
-            skillList.appendChild(ListItem);
-
-            skillInput.value = '';
+                $('.navbar-collapse').collapse('hide');
+            }
         }
+    });
+
+    $(window).on('scroll', function() {
+        const scrollPosition = $(this).scrollTop();
+        const navHeight = $('.navbar').outerHeight();
+
+        $('section').each(function() {
+            const topDistance = $(this).offset().top - navHeight - 5; 
+
+            if (scrollPosition >= topDistance) {
+                const id = $(this).attr('id');
+                $('.navbar-nav .nav-link').removeClass('active');
+                $(`.navbar-nav .nav-link[href$="#${id}"]`).addClass('active');
+            }
+        });
+    });
 });
+
+$(document).ready(function() {
+    let skillsSet = [];
+
+    function updateSkillsList() { // update
+        const $skillsList = $('#skillsList');
+        $skillsList.empty();
+        
+        skillsSet.forEach((skill, index) => {
+            const $li = $('<li>').text(skill).hide().fadeIn();
+            
+            const $editBtn = $('<button>')
+                .addClass('edit-btn')
+                .text('Edit')
+                .click(function() {
+                    editSkill(index);
+                });
+
+            const $deleteBtn = $('<button>')
+                .addClass('delete-btn')
+                .text('Delete')
+                .click(function() {
+                    deleteSkill(index);
+                });
+
+            $li.append($deleteBtn).append($editBtn);
+            $skillsList.append($li);
+        });
+    }
+ // adding
+    function addSkill(skill) {
+        skill = skill.trim();
+        if (skill === '') {
+            alert('Please enter a skill.');
+            return false;
+        }
+        skillsSet.push(skill);
+        updateSkillsList();
+        return true;
+    }
+ // edit
+    function editSkill(index) {
+        const oldSkill = skillsSet[index];
+        const newSkill = prompt('Edit skill:', oldSkill);
+        if (newSkill !== null) {
+            const trimmedNewSkill = newSkill.trim();
+            if (trimmedNewSkill === '') {
+                alert('Skill cannot be empty.');
+                return;
+            }
+            skillsSet[index] = trimmedNewSkill;
+            updateSkillsList();
+        }
+    }
+// delete
+    function deleteSkill(index) {
+        $('#skillsList li').eq(index).slideUp(300, function() {
+            skillsSet.splice(index, 1);
+            updateSkillsList();
+        });
+    }
+
+    $('#skillForm').submit(function(e) {
+        e.preventDefault();
+        const skill = $('#skillInput').val();
+        if (addSkill(skill)) {
+            $('#skillInput').val('');
+        }
+    });
+    function clearInputs() {
+        $('#skillForm input').val('');
+    }
+
+    $('#skillInput').keydown(function(e) {
+        if (e.key === 'Enter') { // enter key
+            e.preventDefault();
+            const skill = $(this).val();
+            if (addSkill(skill)) {
+                $(this).val('');
+            }
+        } else if (e.key === 'Escape') { // escape key
+            e.preventDefault();
+            clearInputs();
+        }
+    });
+
+    $('#skillForm').submit(function(e) {
+        e.preventDefault();
+        const skill = $('#skillInput').val();
+        if (addSkill(skill)) {
+            $('#skillInput').val('');
+        }
+    });
+});
+
 
 
 // for loops for projects
 const projectTitles = [ // array of project titles
     "Birthday Invite Project", "Color Vocab Project", "Box Making Project",
-    "Motivational Poster Project", "CSS Flag", "Web Design Agency",
+    "Motivate Poster Project", "CSS Flag", "Web Design Agency",
     "Mondrain Painting", "Pricing Project", "TinDog"
 ];
 
 const titleLinks = [
-    "./public/movie-ranking.html",
-    "./public/birthday-invite.html",
-    "./public/Color Vocab.html",
-    "./public/Box Model.html",
-    "./public/Motivational.html",
-    "./public/Flag.html",
-    "./public/Web Design Agency CSS.html",
-    "./public/Mondrian.html",
-    "./public/Pricing.html",
-    "./public/TinDog.html"
+    "/public/movie-ranking.html",
+    "/public/birthday-invite.html",
+    "/public/Color Vocab.html",
+    "/public/Box Model.html",
+    "/public/Motivational.html",
+    "/public/Flag.html",
+    "/public/Web Design Agency CSS.html",
+    "/public/Mondrian.html",
+    "/public/Pricing.html",
+    "/public/TinDog.html"
 ];
 
 const projectDescriptions = [ // array of project descriptions
@@ -74,64 +183,76 @@ const projectDeadlines = [ // array of project deadline (dummy dates)
     "2024-09-01",
 ];
 
-function getProjectStatus(deadline) { // deadline function to determine if project is "ongoing" or not
-    const currentDate = new Date();
-    const deadlineDate = new Date(deadline);
+$(document).ready(function() {
+    const projects = projectTitles.map((title, index) => ({
+        title: title,
+        link: titleLinks[index],
+        description: projectDescriptions[index],
+        imageURL: projectImages[index],
+        deadline: new Date(projectDeadlines[index])
+    }));
 
-    if (deadlineDate > currentDate) {
-        return "Ongoing";
-    } else {
-        return "Completed";
+    function getProjectStatus(deadline) { // deadline
+        const currentDate = new Date();
+        return deadline > currentDate ? "Ongoing" : "Completed";
     }
-}
 
+    function renderProjects(projectsArray) { // card format
+        const $container = $('#projectList');
+        $container.empty();
 
-function displayProjects() { // create a function that lists these arrays
-    const projectList = document.getElementById('projectList');
+        for (let i = 0; i < projectsArray.length; i++) { // use of for
+            const project = projectsArray[i];
+            const $projectDiv = $('<div>').addClass('project');
 
-    for (let i = 0; i < projectTitles.length; i++) {
-        const projectDiv = document.createElement('div');
-        projectDiv.classList.add('project');
+            const $title = $('<h2>');
+            const $titleLink = $('<a>')
+                .attr('href', project.link)
+                .text(project.title);
+            $title.append($titleLink);
 
-        const title =  document.createElement('h2');
-        const titleLink = document.createElement('a');
-        titleLink.href = titleLinks[i];
-        titleLink.textContent = projectTitles[i];
-        title.appendChild(titleLink);
+            const $image = $('<img>')
+                .attr('src', project.imageURL)
+                .attr('alt', project.title)
+                .addClass('project-image');
 
+            const $description = $('<h4>').text(project.description);
 
-        const image = document.createElement('img');
-        image.src = projectImages[i];
-        image.alt = projectTitles[i];
-        image.classList.add('project-image');
+            const $deadline = $('<p>').text(`Deadline: ${project.deadline.toDateString()}`);
 
+            const $status = $('<i>')
+                .text(`Status: ${getProjectStatus(project.deadline)}`)
+                .addClass('status');
 
-        const description = document.createElement('h4');
-        description.textContent = projectDescriptions[i];
-
-        const deadline = document.createElement('p');
-        deadline.textContent = `Deadline: ${projectDeadlines[i]}`;
-
-        const deadlineStatus = document.createElement('i');
-        deadlineStatus.textContent = `Status: ${getProjectStatus(projectDeadlines[i])}`; // calls function to see if which status it should say
-        deadlineStatus.classList.add('status');
-
-        projectDiv.appendChild(title);
-        projectDiv.appendChild(image);
-        projectDiv.appendChild(description);
-        projectDiv.appendChild(deadline);
-        projectDiv.appendChild(deadlineStatus);
-
-
-
-        projectList.appendChild(projectDiv);
-
+            $projectDiv.append($title, $image, $description, $deadline, $status);
+            $container.append($projectDiv);
+        }
     }
-}
 
-// call function
-displayProjects();
+    function sortProjects(ascending = true) {
+        projects.sort((a, b) => { // using array.sort function
+            return ascending ? a.deadline - b.deadline : b.deadline - a.deadline;
+        });
+        renderProjects(projects);
+    }
 
+    // Initial render
+    renderProjects(projects);
+
+    // Add sorting buttons
+    const $sortContainer = $('<div>').addClass('sort-container');
+    const $sortAsc = $('<button>')
+        .text('Sort Earliest to Latest')
+        .addClass('btn btn-primary mr-2')
+        .click(() => sortProjects(true));
+    const $sortDesc = $('<button>')
+        .text('Sort Latest to Earliest')
+        .addClass('btn btn-secondary')
+        .click(() => sortProjects(false));
+
+    $sortContainer.append($sortAsc, $sortDesc);
+    $('#projectList').before($sortContainer);
+});
 
 
 
@@ -148,7 +269,7 @@ function updateDownloadCount() { // update download count whenever clicked on
 function displayDownloadCount() { // displays the download count
     document.getElementById('downloadCount').textContent = `Downloads: ${downloadCount}`;
 }
-
+ // dom manipulation
 document.addEventListener('DOMContentLoaded', function() { // detects when user clicks button
     const downloadLink = document.getElementById('resumeDownload');
 
@@ -209,18 +330,18 @@ function createExperienceTable() {
   document.getElementById('experience').appendChild(table);
 }
 
-// creating education table
-function createEducationTable() {
+
+function createEducationTable() {// creating education table
   const headers = ["Degree", "School", "Duration", "Description"];
   const table = createTable(educationData, headers, "educationTable");
   document.getElementById('education').appendChild(table);
 }
 
-//initialize tables
-function initTables() {
+
+function initTables() {//initialize tables
   createExperienceTable();
   createEducationTable();
 }
 
 // call initTables when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', initTables);
+document.addEventListener('DOMContentLoaded', initTables);  // dom manipulation

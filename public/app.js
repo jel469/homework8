@@ -9,7 +9,7 @@ $(document).ready(function() {
             if ($targetSection.length) {
                 const navHeight = $('.navbar').outerHeight();
 
-                $('html, body').animate({
+                $('html, body').animate({ // animate function
                     scrollTop: $targetSection.offset().top - navHeight
                 }, 500); // scroll speed
 
@@ -42,7 +42,7 @@ $(document).ready(function() {
         $skillsList.empty();
         
         skillsSet.forEach((skill, index) => {
-            const $li = $('<li>').text(skill).hide().fadeIn();
+            const $li = $('<li>').text(skill).hide().fadeIn(); // fade in
             
             const $editBtn = $('<button>')
                 .addClass('edit-btn')
@@ -69,6 +69,11 @@ $(document).ready(function() {
             alert('Please enter a skill.');
             return false;
         }
+        if (skillsSet.some(existingSkill => existingSkill.toLowerCase() === skill)) {
+            alert('This skill already exists.'); // skill exists already
+            return false;
+        }
+        
         skillsSet.push(skill);
         updateSkillsList();
         return true;
@@ -87,8 +92,8 @@ $(document).ready(function() {
             updateSkillsList();
         }
     }
-// delete
-    function deleteSkill(index) {
+
+    function deleteSkill(index) {// delete
         $('#skillsList li').eq(index).slideUp(300, function() {
             skillsSet.splice(index, 1);
             updateSkillsList();
@@ -184,7 +189,7 @@ const projectDeadlines = [ // array of project deadline (dummy dates)
 ];
 
 $(document).ready(function() {
-    const projects = projectTitles.map((title, index) => ({
+    const projects = projectTitles.map((title, index) => ({ // getting projects from previous arrays
         title: title,
         link: titleLinks[index],
         description: projectDescriptions[index],
@@ -236,10 +241,9 @@ $(document).ready(function() {
         renderProjects(projects);
     }
 
-    // Initial render
     renderProjects(projects);
 
-    // Add sorting buttons
+    // sorting buttons
     const $sortContainer = $('<div>').addClass('sort-container');
     const $sortAsc = $('<button>')
         .text('Sort Earliest to Latest')

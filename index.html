@@ -51,7 +51,7 @@
 
 
   <div class="px-4 py-5 my-5 text-center">
-    <img src="./assets/images/myself.jpg" alt="myself" width="500" height="500">
+    <img src="/assets/images/myself.jpg" alt="myself" width="500" height="500">
     <h1 class="display-5 fw-bold text-body-emphasis">Jeremiah Lopez</h1>
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4"> A fast-learning individual who is
@@ -65,11 +65,11 @@
         </p>
         <section id = "resume">
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <a href="./public/Jeremiah Lopez Resume 2024.pdf" id = "resumeDownload"> <h2>  Download my Resume (PDF) </h2></a>
+        <a href="/public/Jeremiah Lopez Resume 2024.pdf" id = "resumeDownload"> <h2>  Download my Resume (PDF) </h2></a>
       </div>
       <p id = "downloadCount"> Downloads: 0 </p>
     </section>
-       <img src="./assets/images/resume.png" height = "450"
+       <img src="/assets/images/resume.png" height = "450"
   alt ="resume"/>
 
     </div>
@@ -161,13 +161,14 @@
 </section>
 
 <h4> <ins></ins> Enter Skills: </h4>
+<div class ="skillcontainer">
 <form id="skillForm">
   <input type="text" id="skillInput" placeholder="">
   <button type = "submit"> Add Skill </button>
 </form>
 
-<ul id="skillList"> </ul>
-
+<ul id="skillsList"> </ul>
+ </div>
 
 
 
@@ -232,6 +233,7 @@
 </section>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<script src="./public/app.js"> </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="/public/app.js"> </script>
 </body>
 </html>
